@@ -1,0 +1,76 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python-version: [3.9, 3.10, 3.11, 3.12, 3.13, 3.14]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install C dependencies (Ubuntu)
+      if: matrix.os == 'ubuntu-latest'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential cmake
+
+    - name: Install C dependencies (macOS)
+      if: matrix.os == 'macos-latest'
+      run: |
+        brew update
+        brew install cmake
+
+    - name: Install C dependencies (Windows)
+      if: matrix.os == 'windows-latest'
+      run: |
+        winget install cmake
+
+    - name: Build C code
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        make
+
+    - name: Run C tests
+      run: |
+        cd build
+        make test
+
+  # lint:
+  #   runs-on: ubuntu-latest
+    
+  #   steps:
+  #   - uses: actions/checkout@v4
+  #   - uses: actions/setup-python@v4
+  #     with:
+  #       python-version: '3.9'
+
+  #   - name: Install linting tools
+  #     run: |
+  #       pip install black flake8 mypy
+
+  #   - name: Check Python code formatting
+  #     run: |
+  #       black --check src/python/ tests/
+
+  #   - name: Run Python linter
+  #     run: |
+  #       flake8 src/python/ tests/
+
+  #   - name: Run Python type checking
+  #     run: |
+  #       mypy src/python/
+
