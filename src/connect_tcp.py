@@ -1,3 +1,5 @@
+import os
+import ast
 import sys
 import time
 import socket
@@ -6,6 +8,8 @@ import threading
 from datetime import datetime
 class TCPServer_Base:  # TCP server class
     def __init__(self, host='127.0.0.1', port=65432, max_clients=10):
+        self.decode_command_table_file_path=os.path.join(
+            os.path.dirname(os.path.abspath(__file__)), 'decode_command_table.json')
         self.host = host
         self.port = port
         self.max_clients = max_clients
@@ -13,6 +17,12 @@ class TCPServer_Base:  # TCP server class
         self.clients = {}  # store client info
         self.running = False
         self.client_lock = threading.Lock()  # add the threading lock
+        self.receive_data_from_client = ""
+        self.command_decode_table_str=None
+        with open(self.decode_command_table_file_path, 'r', encoding='utf-8') as f:
+            self.command_decode_table_str = f.read()
+        self.command_decode_table=(
+            ast.literal_eval(self.command_decode_table_str))
         self.start_TCP_Server()
     def broadcast(self, message, exclude_client=None): # broadcast message to all clients except exclude_client
         with self.client_lock:
@@ -43,19 +53,18 @@ class TCPServer_Base:  # TCP server class
         client_socket.sendall(welcome_msg.encode('utf-8'))
         try:
             while True:
-                
                 data = client_socket.recv(4096)  # get msg from client
                 if not data:
                     break
                 message = data.decode('utf-8').strip()  # decode msg
+                self.receive_data_from_client=message
                 if message.startswith('/'):  # deal with special command
-                    response = self.handle_command(client_socket, client_address, message)
+                    response = self.handle_command(
+                        client_socket, client_address, message)
                 else:
                     timestamp = datetime.now().strftime("%H:%M:%S")  # deal with normal message
                     log_msg = f"[{timestamp}] {client_id}: {message}"
                     print(log_msg)
-                    broadcast_msg = f"[{timestamp}] client {client_id}: {message}"  # send broadcast message
-                    self.broadcast(broadcast_msg, exclude_client=client_address)
                     response = f"msg send: {message}"
                 if response:  # send response to client
                     client_socket.sendall(response.encode('utf-8'))
@@ -72,25 +81,49 @@ class TCPServer_Base:  # TCP server class
             print(f"current connection count: {len(self.clients)}")
     def handle_command(self, client_socket, client_address, command):  # deal with special commands from client
         client_id = f"{client_address[0]}:{client_address[1]}"
+        send_str=None
         if command == '/help':
             help_text = """
             avalable commands:
             /help - print help meg
             /time - display server time
             /clients - display connected clients
+            /file - send file to server
             /quit - disconnect
             """
-            return help_text
+            send_str=help_text+"\n"
+            return send_str
         elif command == '/time':
-            return f"server time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
+            send_str=(
+                f"server time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"+"\n")
+            return send_str
         elif command == '/clients':
             with self.client_lock:
                 client_list = [info['id'] for info in self.clients.values()]
-                return f"online clients ({len(client_list)}): {', '.join(client_list)}"
+                send_str=(
+                    f"online clients ({len(client_list)}): {', '.join(client_list)}"+"\n")
+                return send_str
         elif command == '/quit':
-            return "Bye!"
+            send_str="Bye!"+"\n"
+            return send_str
         else:
-            return f"unknow: {command}"
+            send_str=f"unknow: {command}"+"\n"
+            return send_str
+        if command.split(" ")[0]=="/file":
+            filename=""
+            filedata=""
+            while True:
+                try:
+                    filename = command.split(" ")[1]
+                except:
+                    pass
+                if (self.receive_data_from_client==
+                    self.command_decode_table[0]["file_send_server_header"]):
+                    break
+            client_socket.sendall(
+                self.command_decode_table[0][
+                    "file_resieve_client_header"].encode('utf-8'))
+            # ...
     def start_TCP_Server(self):  # set up server socket
         try:
             self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -124,18 +157,25 @@ class TCPServer_Base:  # TCP server class
     def console_input(self):  # deal consule input
         while self.running:
             try:
-                cmd = input().strip().lower()
-                if cmd == 'stop':
+                deal_cmd=""
+                cmd = list(input())
+                del cmd[0]
+                for i in range(len(cmd)):
+                    deal_cmd += cmd[i]
+                deal_cmd = deal_cmd.lower()
+                if deal_cmd == 'stop':
                     print("shutting down...")
                     self.running = False
                     self.stop()
-                elif cmd == 'status':
+                elif deal_cmd == 'status':
                     print(f"current connection count: {len(self.clients)}")
                     print(f"server running: {self.running}")
-                elif cmd == 'clients':
+                elif deal_cmd == 'clients':
                     with self.client_lock:
                         for addr, info in self.clients.items():
                             print(f"  {info['id']} - connection time: {info['connected_time']}")
+                elif deal_cmd == 'file':
+                    pass
             except:
                 break
     def stop(self):  # shutting down the server
@@ -152,12 +192,20 @@ class TCPServer_Base:  # TCP server class
             print("server stopped")
 class TCPClient_Base:  # TCP client class
     def __init__(self, host='127.0.0.1', port=65432, timeout=5):
+        self.decode_command_table_file_path=os.path.join(
+            os.path.dirname(os.path.abspath(__file__)), 'decode_command_table.json')
         self.host = host
         self.port = port
         self.timeout = timeout
         self.client_socket = None
         self.running = False
         self.receive_thread = None
+        self.receive_data_from_server = ""
+        self.command_decode_table_str=None
+        with open(self.decode_command_table_file_path, 'r', encoding='utf-8') as f:
+            self.command_decode_table_str = f.read()
+        self.command_decode_table=(
+            ast.literal_eval(self.command_decode_table_str))
         self.start_TCP_client()
     def connect(self):  # connect to server
         try:
@@ -185,6 +233,8 @@ class TCPClient_Base:  # TCP client class
         while self.running:
             try:
                 data = self.client_socket.recv(4096)
+                self.receive_data_from_server=(
+                    data.decode('utf-8').strip())
                 if not data:
                     print("\nbreak the connection from server")
                     self.running = False
@@ -228,6 +278,12 @@ class TCPClient_Base:  # TCP client class
                             self.send_message('/quit')
                             time.sleep(0.5)
                             break
+                        elif message.lower().split(" ")[0]=="/file":
+                            try:
+                                filename = message.split(" ")[1]
+                                self.file_transfer_mode(filename)
+                            except IndexError:
+                                print("invalid command, please use '/file <filename>'")
                         else:
                             self.send_message(message)
                 except KeyboardInterrupt:
@@ -241,12 +297,31 @@ class TCPClient_Base:  # TCP client class
             self.close()
     def file_transfer_mode(self, filename):  # file send mode
         try:
+            self.send_file_header_sign=(
+                self.command_decode_table[0]["file_send_server_header"])
+            self.send_file_data_sign=(
+                self.command_decode_table[0]["file_send_server_data"])
+            self.server_reseived_file_header_sign=(
+                self.command_decode_table[0]["file_resieve_client_header"])
+            self.server_reseived_file_data_sign=(
+                self.command_decode_table[0]["file_resieve_client_data"])
             with open(filename, 'rb') as file:  # send file name and size header
                 file_data = file.read()
-                header = f"/file {filename} {len(file_data)}\n"
+                header = f"file {filename} {len(file_data)}\n"
                 self.client_socket.sendall(header.encode('utf-8'))
-                time.sleep(0.1)
+                self.client_socket.sendall(
+                    self.send_file_header_sign.encode('utf-8'))
+                while True:
+                    if (self.receive_data_from_server==
+                        self.server_reseived_file_header_sign):
+                        break
                 self.client_socket.sendall(file_data)  # send file data
+                self.client_socket.sendall(
+                    self.send_file_data_sign.encode('utf-8'))
+                while True:
+                    if (self.receive_data_from_server==
+                        self.server_reseived_file_data_sign):
+                        break
                 print(f"file {filename} sended successfully")
         except FileNotFoundError:
             print(f"file {filename} not exist")
@@ -258,19 +333,10 @@ class TCPClient_Base:  # TCP client class
             self.client_socket.close()
         print("connection closed")
     def start_TCP_client(self):  # start client
-        parser = argparse.ArgumentParser(description='TCP client')
-        parser.add_argument('--host', default='127.0.0.1', help='server address')
-        parser.add_argument('--port', type=int, default=65432, help='server port')
-        parser.add_argument('--file', help='send file')
-        args = parser.parse_args()
         if not self.connect():
             sys.exit(1)
         try:
-            if args.file:
-                self.file_transfer_mode(args.file)
-                time.sleep(2)
-            else:
-                self.interactive_mode()
+            self.interactive_mode()
         except KeyboardInterrupt:
             print("\nclient shutting down...")
         finally:
