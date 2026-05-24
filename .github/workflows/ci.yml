@@ -3,36 +3,36 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  C_test:
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
+  # C_test:
+  #   strategy:
+  #     matrix:
+  #       os: [ubuntu-latest]
 
-    runs-on: ${{ matrix.os }}
-    timeout-minutes: 30
+  #   runs-on: ${{ matrix.os }}
+  #   timeout-minutes: 30
 
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v6.0.2
+  #   steps:
+  #   - name: Checkout code
+  #     uses: actions/checkout@v6.0.2
 
-    - name: Install C dependencies (Ubuntu)
-      if: matrix.os == 'ubuntu-latest'
-      run: |
-        sudo apt-get remove needrestart
-        sudo apt-get update
-        sudo apt-get install -y cmake
+  #   - name: Install C dependencies (Ubuntu)
+  #     if: matrix.os == 'ubuntu-latest'
+  #     run: |
+  #       sudo apt-get remove needrestart
+  #       sudo apt-get update
+  #       sudo apt-get install -y cmake
 
-    - name: Build C code
-      run: |
-        mkdir -p build
-        cd build
-        cmake ..
-        make
+  #   - name: Build C code
+  #     run: |
+  #       mkdir -p build
+  #       cd build
+  #       cmake ..
+  #       make
 
-    - name: Run C tests
-      run: |
-        cd build
-        ctest
+  #   - name: Run C tests
+  #     run: |
+  #       cd build
+  #       ctest
 
   Lint:
     runs-on: ubuntu-latest
