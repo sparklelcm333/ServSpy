@@ -13,7 +13,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6.0.2
 
     - name: Install C dependencies (Ubuntu)
       if: matrix.os == 'ubuntu-latest'
@@ -24,7 +24,7 @@ jobs:
 
     - name: Build C code
       run: |
-        mkdir build
+        mkdir -p build
         cd build
         cmake ..
         make
@@ -32,7 +32,7 @@ jobs:
     - name: Run C tests
       run: |
         cd build
-        make test
+        ctest
 
   Pylint:
     strategy:
