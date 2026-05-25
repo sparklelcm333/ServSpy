@@ -17,6 +17,13 @@ exclude = ["build/", "dist/", ".git/", "__pycache__/"]
 
 [tool.ruff.lint]
 select = ["E", "F", "PL", "I"]
+ignore = [
+    "PLR0915",   # 函数语句过多（暂不重构）
+    "PLW0603",   # 使用 global 更新实例
+    "PLR0911",   # 返回语句过多
+    "PLR0912",   # 分支过多
+    "PLR0913",   # 参数过多
+]
 
 [tool.ruff.format]
 quote-style = "double"
@@ -27,6 +34,9 @@ python-version = "3.11"
 
 [tool.ty.src]
 exclude = ["test/"]
+
+[tool.ty.rules]
+unresolved-attribute = "ignore"
 
 [tool.pytest.ini_options]
 testpaths = ["test"]
