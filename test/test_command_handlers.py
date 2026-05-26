@@ -1,5 +1,6 @@
 import builtins
 import io
+import json
 from types import SimpleNamespace
 
 import src.command_control_extension_tcp as ctl
@@ -85,3 +86,26 @@ def test_command_handler_server_setup_triggers_file_transfer(server_client, monk
 
     assert "file_transfer" in calls
     assert any("/command_done" in m for m in calls.get("sent", []))
+
+
+def test_command_done_merges_transferred_logs_into_one_file(server, tmp_path, monkeypatch):
+    server.file_transfer_dir = str(tmp_path / "received")
+    (tmp_path / "received").mkdir()
+    monkeypatch.setattr(ctl.os.path, "dirname", lambda path: str(tmp_path))
+
+    received_file = tmp_path / "received" / "logs_0.json"
+    received_file.write_text(json.dumps({"cmd1": [{"output": "ok"}]}), encoding="utf-8")
+
+    logs_dir = tmp_path / "logs"
+    logs_dir.mkdir()
+    existing_file = logs_dir / "logs_1.json"
+    existing_file.write_text(json.dumps({"cmd1": [{"error": "none"}]}), encoding="utf-8")
+
+    cmd = "/command_done \"logs_0.json\" \"/tmp/logs/logs_0.json\""
+    ctl._command_done_dealing_server(None, ("127.0.0.1", 9999), cmd)
+
+    merged_file = logs_dir / "merged_logs.json"
+    assert merged_file.exists()
+    merged = json.loads(merged_file.read_text(encoding="utf-8"))
+    assert merged["cmd1"][0] == {"error": "none"}
+    assert merged["cmd1"][1] == {"output": "ok"}
