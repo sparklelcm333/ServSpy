@@ -13,6 +13,42 @@ server_instance=None
 client_instance=None
 command_counter={}
 command_counter_lock=threading.Lock()
+
+def _load_json_file(path):
+    try:
+        with open(path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+            return data if isinstance(data, dict) else {}
+    except Exception:
+        return {}
+
+
+def _merge_log_dicts(base_data, extra_data):
+    merged = {}
+    for command, entries in base_data.items():
+        merged[command] = list(entries) if isinstance(entries, list) else [entries]
+    for command, entries in extra_data.items():
+        if command not in merged:
+            merged[command] = []
+        if isinstance(entries, list):
+            merged[command].extend(entries)
+        else:
+            merged[command].append(entries)
+    return merged
+
+
+def _merge_all_logs(log_dir, merged_filename='merged_logs.json'):
+    merged_data = {}
+    for filename in os.listdir(log_dir):
+        if not filename.endswith('.json') or filename == merged_filename:
+            continue
+        file_path = os.path.join(log_dir, filename)
+        if os.path.isfile(file_path):
+            merged_data = _merge_log_dicts(merged_data, _load_json_file(file_path))
+    with open(os.path.join(log_dir, merged_filename), 'w', encoding='utf-8') as f:
+        json.dump(merged_data, f, ensure_ascii=False, indent=2)
+
+
 def _setup_command():
     print("Setting up server command...")
     server_instance.register_command(
@@ -149,18 +185,26 @@ def _command_done_dealing_server(sock, addr, cmd):
     cmd_parts = shlex.split(cmd)
     log_filename = cmd_parts[1]
     log_path = cmd_parts[2]
-    log_dir=os.path.join(os.path.dirname(__file__), 'logs')
-    if os.path.exists(log_dir):
-        pass
-    else:
-        os.mkdir(log_dir)
-    received_log_file=os.path.join(
-        server_instance.file_transfer_dir, log_path)
+    log_dir = os.path.join(os.path.dirname(__file__), 'logs')
+    os.makedirs(log_dir, exist_ok=True)
+
+    received_log_file = os.path.join(
+        server_instance.file_transfer_dir,
+        os.path.basename(log_path))
+    destination_log_file = os.path.join(log_dir, log_filename)
     try:
-        shutil.move(
-            received_log_file, os.path.join(log_dir, log_filename))
+        if os.path.exists(destination_log_file):
+            existing_logs = _load_json_file(destination_log_file)
+            incoming_logs = _load_json_file(received_log_file)
+            merged_logs = _merge_log_dicts(existing_logs, incoming_logs)
+            with open(destination_log_file, 'w', encoding='utf-8') as f:
+                json.dump(merged_logs, f, ensure_ascii=False, indent=2)
+            os.remove(received_log_file)
+        else:
+            shutil.move(received_log_file, destination_log_file)
+        _merge_all_logs(log_dir)
         print("Command Done!")
-    except:
+    except Exception:
         traceback.print_exc()
         print("ErrorWhileMovingTheLogFile: moving log file failed.")
 def client_setup():
