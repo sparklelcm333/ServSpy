@@ -101,7 +101,7 @@ def test_command_done_merges_transferred_logs_into_one_file(server, tmp_path, mo
     existing_file = logs_dir / "logs_1.json"
     existing_file.write_text(json.dumps({"cmd1": [{"error": "none"}]}), encoding="utf-8")
 
-    cmd = "/command_done \"logs_0.json\" \"/tmp/logs/logs_0.json\""
+    cmd = '/command_done "logs_0.json" "/tmp/logs/logs_0.json"'
     ctl._command_done_dealing_server(None, ("127.0.0.1", 9999), cmd)
 
     merged_file = logs_dir / "merged_logs.json"
