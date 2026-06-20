@@ -9,17 +9,26 @@ efforts to help improve ServSpy.
 
 Before contributing:
 --------------------
-1, Please make sure that you have already made a fork repository 
+1, Before you start to contribute, espacially open a pull request. 
+Please make sure that you already opened an issue to discuss 
+the changes you want to make. This will help us understand 
+your intentions and provide feedback before you start working 
+on the code, tests or docs etc., or your PR may be closed 
+without review. In addition, please add the issue number 
+or the url in the description of your pull request, so we 
+can easily track the related issue and PR.
+
+2, Please make sure that you have already made a fork repository 
 of ServSpy.
 
-2, After you made a fork repository, please clone it to your local:
+3, After you made a fork repository, please clone it to your local:
 
 .. code-block:: bash
 
    git clone https://github.com/<your-username>/ServSpy.git
    cd ./ServSpy
 
-3, If there are any new commits ahead of your fork repository, 
+4, If there are any new commits ahead of your fork repository, 
 please pull the latest changes from the original repository to 
 avoid the merge conflicts:
 
@@ -27,14 +36,14 @@ avoid the merge conflicts:
 
    git pull origin main --rebase
 
-4, Create a new branch for your changes 
+5, Create a new branch for your changes 
 (Make sure the branch name is descriptive of the changes you are making):
 
 .. code-block:: bash
 
    git checkout -b <your-branch-name>
 
-5, When you have made your changes, commit and push them with a clear 
+6, When you have made your changes, commit and push them with a clear 
 and descriptive commit message:
 
 .. code-block:: bash
@@ -43,7 +52,7 @@ and descriptive commit message:
    git commit -m "Describe your changes here"
    git push origin <your-branch-name>
 
-6, Finally, open a pull request to the original repository.
+7, Finally, open a pull request to the original repository.
 
 Contributing for the core code of ServSpy:
 ------------------------------------------
