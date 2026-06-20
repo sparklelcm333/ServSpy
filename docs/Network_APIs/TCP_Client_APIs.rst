@@ -22,7 +22,8 @@ the TCP server and exchange data with the server.
             max_thread_num: Any,
             is_input_command_in_console: Any,
             is_wait_server: Any,
-            max_custom_workers: Any) -> None: 
+            max_custom_workers: Any,
+            is_extend_command: Any=False) -> None: 
             ...
 
 The TCP Client Setup API is defined in the ``TCP_Client_Base`` class.
@@ -51,6 +52,8 @@ Every parameter has default values:
 - ``is_input_command_in_console``: Default is ``True``
 - ``is_wait_server``: Default is ``True``
 - ``max_custom_workers``: Default is ``10``
+- ``is_extend_command``: Default is ``False`` 
+  (when ``True``, ``__init__`` will not call ``start_TCP_client()`` automatically)
 
 The TCP Client Setup API will initialize all the necessary 
 parameters and resources for the TCP client.
@@ -60,6 +63,17 @@ we initialize the `start_TCP_client` method to setup
 all functions which are needed in the TCP client, 
 including connecting to the server, handling incoming 
 messages, and managing user input.* 
+
+*Note: By default ``TCP_Client_Base.__init__`` calls 
+``start_TCP_client()`` to connect and enter interactive 
+mode. If you set ``is_extend_command=True``, the 
+instance will not auto-start and you should call 
+``start_TCP_client()`` manually when ready.*
+
+*Note: If you set ``is_wait_server=True``, the ``timeout`` 
+parameter must be ``None``. The constructor will raise 
+a ``ValueError`` if ``is_wait_server`` is ``True`` and 
+``timeout`` is not ``None``.*
 
 .. code-block:: python
 

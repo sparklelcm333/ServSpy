@@ -22,7 +22,8 @@ clients.
             max_file_transfer_thread_num: Any,
             is_hand_alloc_port: Any,
             is_input_command_in_console: Any,
-            max_custom_workers: Any) -> None: 
+            max_custom_workers: Any,
+            is_extend_command: Any=False) -> None:
             ...
 
 The TCP Server Setup API is defined in the ``TCP_Server_Base`` class.
@@ -49,14 +50,17 @@ Every parameters are all have default values:
 - ``is_hand_alloc_port``: Default is ``False``
 - ``is_input_command_in_console``: Default is ``True``
 - ``max_custom_workers``: Default is ``10``
+- ``is_extend_command``: Default is ``False`` 
+  (when ``True``, ``__init__`` will not call ``start_TCP_Server()`` automatically)
 
 The TCP Server Setup API will initialize all the necessary 
 parameters and resources for the TCP server.
 
-*Note: In the main class of the TCP server setup API, 
-we initialize the `start_TCP_Server` method to setup 
-all functions which are needed in the TCP server, 
-including the server socket or handle clients etc..* 
+*Note: By default ``TCP_Server_Base.__init__`` calls 
+``start_TCP_Server()`` to start the server automatically. 
+If you set ``is_extend_command=True``, the instance will 
+not auto-start and you should call ``start_TCP_Server()`` 
+manually when ready.*
 
 .. code-block:: python
 
@@ -137,11 +141,12 @@ At the end of the operations, the TCP server will close all
 of the sockets of clients which are accounted in the dictionary 
 variable ``self.clients`` and also close the server socket.
 
-*Note: The ``self.clients`` variable is a dictionary which is 
-used to store the client sockets and their corresponding 
-addresses. The key of the dictionary is the client socket, 
-and the value is the client address. It has been defined 
-in the ``__init__`` method.*
+*Note: The ``self.clients`` variable is a dictionary that 
+maps client address tuples to an info dictionary. The 
+key is the client address tuple (``(ip, port)``) and the 
+value is a dictionary containing connection details such 
+as ``'socket'``, ``'address'``, ``'id'``, and ``'connected_time'``. 
+See the example below which shows how entries are stored.*
 
 .. code-block:: python
 
