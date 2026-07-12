@@ -7,8 +7,8 @@ import shutil
 import traceback
 import threading
 import subprocess
-from . import connect_tcp
 from datetime import datetime
+from .network_api import connect_tcp
 server_instance=None
 client_instance=None
 command_counter={}
