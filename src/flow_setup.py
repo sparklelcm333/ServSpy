@@ -237,7 +237,6 @@ def main():
     parser.add_argument('--setup_num', type=int, default=1,
                         help='Number of instances to launch (only 1 is allowed)')
     args = parser.parse_args()
-
     if args.type is not None:
         if args.type == 0 and args.connect_addr_port is not None:
             print("Error: --connect_addr_port cannot be used in Server mode")
@@ -268,7 +267,6 @@ def main():
         choice = 'y'
     servers, clients = interactive_collect()
     save_config(servers, clients)
-
     for cfg in servers:
         launch_instance(cfg, 'server')
     for cfg in clients:

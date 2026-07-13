@@ -23,6 +23,7 @@ docs/locale/**/*.mo
 docs/.sync
 *.bak
 *~
+src/setup.json
 
 # CLion
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
