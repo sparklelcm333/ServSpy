@@ -1,0 +1,262 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, RayXu
+# This file is distributed under the same license as the PyFlow package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PyFlow\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-14 16:43+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.10.3\n"
+
+#: ../../Instance_Setup/Instance_Setup.rst:3 707444a8cdb246fd81a189c038518c82
+msgid "Flow Setup Launcher"
+msgstr "흐름 설정 실행기"
+
+#: ../../Instance_Setup/Instance_Setup.rst:5 a611d1bbc1bc4b12a9db0997909626bc
+msgid ""
+"The ``flow_setup.py`` script is a launcher for the TCP server/client "
+"framework defined in ``connect_tcp.py``. It allows you to quickly spawn a "
+"single server or client instance either interactively or via command‑line "
+"arguments. Each launched instance runs in a separate terminal window (or "
+"background process on headless systems)."
+msgstr ""
+"``flow_setup.py`` 스크립트는 ``connect_tcp.py``에 정의된 TCP 서버/클라이언트 프레임워크용 실행 "
+"프로그램입니다. 이를 통해 대화형으로 또는 명령줄 인수를 통해 단일 서버 또는 클라이언트 인스턴스를 빠르게 생성할 수 있습니다. 시작된 "
+"각 인스턴스는 별도의 터미널 창(또는 헤드리스 시스템의 백그라운드 프로세스)에서 실행됩니다."
+
+#: ../../Instance_Setup/Instance_Setup.rst:12 bc0bbe4590e04437827678fe85f482fb
+msgid ""
+"**Note:** This launcher supports only **one server** and **one client** "
+"instance at a time. Adding a new server or client configuration will "
+"completely overwrite any previous configuration of the same type."
+msgstr ""
+"**참고:** 이 실행 프로그램은 한 번에 **하나의 서버**와 **하나의 클라이언트** 인스턴스만 지원합니다. 새 서버 또는 클라이언트"
+" 구성을 추가하면 동일한 유형의 이전 구성을 완전히 덮어쓰게 됩니다."
+
+#: ../../Instance_Setup/Instance_Setup.rst:18 146d87f809054469be52a0d4174907fc
+msgid "Features"
+msgstr "특징"
+
+#: ../../Instance_Setup/Instance_Setup.rst:20 ea5ca94177b349b3852287e9327f792e
+msgid ""
+"**Interactive mode** – step‑by‑step creation of a server or client instance."
+msgstr "**대화형 모드** – 서버 또는 클라이언트 인스턴스를 단계별로 생성합니다."
+
+#: ../../Instance_Setup/Instance_Setup.rst:22 bb06f53ddbea4dd09b99e288569f858d
+msgid "**Command‑line mode** – launch with all parameters in one command."
+msgstr "**명령줄 모드** – 하나의 명령으로 모든 매개변수를 사용하여 실행합니다."
+
+#: ../../Instance_Setup/Instance_Setup.rst:24 11bd4b3ce97743e0857c109ae9bc2286
+msgid ""
+"**Persistent configuration** – stores the latest instance definitions in "
+"``setup.json`` (same directory as the script). Each type (server/client) "
+"holds **only one** configuration, which is overwritten on each update."
+msgstr ""
+"**영구 구성** – 최신 인스턴스 정의를 ``setup.json``(스크립트와 동일한 디렉터리)에 저장합니다. 각 "
+"유형(서버/클라이언트)에는 **하나의** 구성만 포함되며 업데이트할 때마다 덮어쓰여집니다."
+
+#: ../../Instance_Setup/Instance_Setup.rst:29 7b3f201c93c349719f4128f05cc194bf
+msgid ""
+"**Cross‑platform** – supports Windows (cmd), Linux (gnome‑terminal, xterm, "
+"or background), and macOS (Terminal.app)."
+msgstr ""
+"**크로스 플랫폼** – Windows(cmd), Linux(gnome 터미널, xterm 또는 백그라운드) 및 "
+"macOS(Terminal.app)를 지원합니다."
+
+#: ../../Instance_Setup/Instance_Setup.rst:32 89b17f1fa60241a288381f74072aa273
+msgid ""
+"**Complete parameter support** – all parameters accepted by "
+"``TCP_Server_Base`` and ``TCP_Client_Base`` can be stored in ``setup.json`` "
+"for fine‑tuning."
+msgstr ""
+"**완전한 매개변수 지원** – ``TCP_Server_Base`` 및 ``TCP_Client_Base``에서 허용하는 모든 매개변수는 "
+"미세 조정을 위해 ``setup.json``에 저장할 수 있습니다."
+
+#: ../../Instance_Setup/Instance_Setup.rst:37 ca859ffa1d4140cab68092170525c59f
+msgid "Usage"
+msgstr "용법"
+
+#: ../../Instance_Setup/Instance_Setup.rst:40 1935db82ef7f4dbeb08d386a49aba876
+msgid "Interactive Mode"
+msgstr "대화형 모드"
+
+#: ../../Instance_Setup/Instance_Setup.rst:42 86f8dafb1c9d4adaa4666b1dea52af23
+msgid "Run the script without any arguments:"
+msgstr "인수 없이 스크립트를 실행합니다."
+
+#: ../../Instance_Setup/Instance_Setup.rst:48 d516fe21071e448da15df91f07353fc8
+msgid "The script will ask you to:"
+msgstr "스크립트는 다음을 요청합니다."
+
+#: ../../Instance_Setup/Instance_Setup.rst:50 41684f03f6d7460f87fed8f4bef8f1e5
+msgid "Choose the type (0 for Server, 1 for Client)."
+msgstr "유형을 선택합니다(서버의 경우 0, 클라이언트의 경우 1)."
+
+#: ../../Instance_Setup/Instance_Setup.rst:51 750440862d7545e9bc4f137f36983fd6
+msgid "Enter the bind address and port (``host:port``)."
+msgstr "바인딩 주소와 포트(``host:port``)를 입력하세요."
+
+#: ../../Instance_Setup/Instance_Setup.rst:52 a938572ed1dd43f7988e382ec9fea306
+msgid "If Client, also enter the server address and port to connect to."
+msgstr "클라이언트인 경우 연결할 서버 주소와 포트도 입력합니다."
+
+#: ../../Instance_Setup/Instance_Setup.rst:53 3f30b7f3c46e42c19eae6344b424e1f7
+msgid ""
+"Decide whether to add another instance (if you add the same type again, the "
+"previous configuration of that type is overwritten)."
+msgstr "다른 인스턴스를 추가할지 여부를 결정합니다. 동일한 유형을 다시 추가하면 해당 유형의 이전 구성을 덮어씁니다."
+
+#: ../../Instance_Setup/Instance_Setup.rst:55 e8b6550fe5eb426f8478c1b3fef81160
+msgid ""
+"If ``setup.json`` already exists, you will be prompted to either reuse the "
+"existing configuration (launch the stored instances) or overwrite it with "
+"new definitions."
+msgstr ""
+"``setup.json``이 이미 존재하는 경우 기존 구성을 재사용하거나(저장된 인스턴스 시작) 이를 새 정의로 덮어쓰라는 메시지가 "
+"표시됩니다."
+
+#: ../../Instance_Setup/Instance_Setup.rst:60 b222bf87298747c6b526d72e1459ad83
+msgid ""
+"**Important:** When you choose to overwrite, the old server/client "
+"configuration is **completely replaced** by the new one. There is no "
+"merging."
+msgstr "**중요:** 덮어쓰기를 선택하면 이전 서버/클라이언트 구성이 새 구성으로 **완전히 교체**됩니다. 병합이 없습니다."
+
+#: ../../Instance_Setup/Instance_Setup.rst:65 ad560cd1d404495583c74b5929235453
+msgid "Command‑line Mode"
+msgstr "명령줄 모드"
+
+#: ../../Instance_Setup/Instance_Setup.rst:67 50a9125f52a54c9b82c66cf616e06d71
+msgid "Use the following options:"
+msgstr "다음 옵션을 사용하세요."
+
+#: ../../Instance_Setup/Instance_Setup.rst:82 f7f3b3263fdf457c908ea18b74dccea9
+msgid "Examples"
+msgstr "예"
+
+#: ../../Instance_Setup/Instance_Setup.rst:84 13847166f8d54c9db943e1e55cf66c55
+msgid "**Launch a single server** on ``127.0.0.1:8000``:"
+msgstr "**127.0.0.1:8000``에서 단일 서버 실행**:"
+
+#: ../../Instance_Setup/Instance_Setup.rst:90 aa92290b83324661a23d2343f7ca56fb
+msgid ""
+"**Launch a client** bound to port ``9000``, connecting to a server at "
+"``127.0.0.1:8000``:"
+msgstr "``127.0.0.1:8000``에서 서버에 연결하여 ``9000`` 포트에 바인딩된 **클라이언트 실행**:"
+
+#: ../../Instance_Setup/Instance_Setup.rst:97 9d2ca3944f984434b4ecb579b075ccc4
+msgid ""
+"**Launch from an existing configuration** (if ``setup.json`` is present):"
+msgstr "**기존 구성에서 실행**(``setup.json``이 있는 경우):"
+
+#: ../../Instance_Setup/Instance_Setup.rst:105
+#: d88aa64a570f4f36baf5c7c92d4bd861
+msgid "Configuration File"
+msgstr "구성 파일"
+
+#: ../../Instance_Setup/Instance_Setup.rst:107
+#: cfb0db3d5e23418d9c93ddb2d34548d4
+msgid ""
+"The script writes a file named ``setup.json`` in the same directory. Its "
+"structure is:"
+msgstr "스크립트는 동일한 디렉터리에 ``setup.json``이라는 파일을 작성합니다. 그 구조는 다음과 같습니다:"
+
+#: ../../Instance_Setup/Instance_Setup.rst:131
+#: 0a2b6c0e312a49de8ed7838e045b3b66
+msgid ""
+"**Each list contains at most one object.** When a new server or client "
+"configuration is added, the entire list for that type is replaced."
+msgstr ""
+"**각 목록에는 최대 하나의 개체가 포함됩니다.** 새 서버 또는 클라이언트 구성이 추가되면 해당 유형에 대한 전체 목록이 대체됩니다."
+
+#: ../../Instance_Setup/Instance_Setup.rst:136
+#: 1a256391599446d99c3cc375639f251c
+msgid "Custom Parameters"
+msgstr "맞춤 매개변수"
+
+#: ../../Instance_Setup/Instance_Setup.rst:138
+#: 36cefa4820cd42ee93fdb560be1b1032
+msgid ""
+"You can manually edit ``setup.json`` to include any parameter accepted by "
+"``TCP_Server_Base`` or ``TCP_Client_Base`` (see the source code for the full"
+" list). These custom values are retained when the launcher overwrites the "
+"configuration (since the script reads the existing config and updates it "
+"with user‑provided values, but if you choose to overwrite, the old config is"
+" discarded and only the new fields are saved – so if you want custom "
+"parameters, you should add them after the first launch or edit the file "
+"manually)."
+msgstr ""
+"``TCP_Server_Base`` 또는 ``TCP_Client_Base``에서 허용하는 매개변수를 포함하도록 "
+"``setup.json``을 수동으로 편집할 수 있습니다(전체 목록은 소스 코드 참조). 이러한 사용자 정의 값은 실행 프로그램이 구성을"
+" 덮어쓸 때 유지됩니다(스크립트가 기존 구성을 읽고 사용자가 제공한 값으로 업데이트하기 때문입니다. 하지만 덮어쓰기를 선택하면 이전 "
+"구성이 삭제되고 새 필드만 저장됩니다. 따라서 사용자 정의 매개변수를 원할 경우 처음 실행한 후에 해당 매개변수를 추가하거나 파일을 "
+"수동으로 편집해야 합니다)."
+
+#: ../../Instance_Setup/Instance_Setup.rst:150
+#: e58290a2c5f3492bafa47f15b7c2958f
+msgid "Internal Operation"
+msgstr "내부 운영"
+
+#: ../../Instance_Setup/Instance_Setup.rst:152
+#: 6655764b01644b92910338c01d38b0cb
+msgid "Each instance is launched in a new terminal window"
+msgstr "각 인스턴스는 새 터미널 창에서 시작됩니다."
+
+#: ../../Instance_Setup/Instance_Setup.rst:153
+#: 6824028a99254c77a55fb56d51b5e9a5
+msgid "(or background process)."
+msgstr "(또는 백그라운드 프로세스)."
+
+#: ../../Instance_Setup/Instance_Setup.rst:154
+#: 0a09353648d44ba2a840fc1cf8a850bc
+msgid "The configuration is passed via a temporary JSON"
+msgstr "구성은 임시 JSON을 통해 전달됩니다."
+
+#: ../../Instance_Setup/Instance_Setup.rst:155
+#: f6327281e35a4304b404563d00301a1a
+msgid "file to avoid shell escaping issues."
+msgstr "쉘 이스케이프 문제를 방지하기 위한 파일입니다."
+
+#: ../../Instance_Setup/Instance_Setup.rst:156
+#: 997e364f35714b18b1e47af641ce58db
+msgid "If an instance fails to start, the error is"
+msgstr "인스턴스가 시작되지 않으면 오류는 다음과 같습니다."
+
+#: ../../Instance_Setup/Instance_Setup.rst:157
+#: 4404c088296e4c35b49ed59eca3b6678
+msgid "displayed and the window pauses for inspection."
+msgstr "표시되고 검사를 위해 창이 일시 중지됩니다."
+
+#: ../../Instance_Setup/Instance_Setup.rst:160
+#: 2b8f982006184d36b06d4ac5579a36f4
+msgid "Requirements"
+msgstr "요구사항"
+
+#: ../../Instance_Setup/Instance_Setup.rst:162
+#: f10fabd9883942b780cd0822da245837
+msgid "Python 3.6+"
+msgstr "파이썬 3.6+"
+
+#: ../../Instance_Setup/Instance_Setup.rst:163
+#: f464e1a571fa46388937f3236b36d3bf
+msgid "The ``network_api.connect_tcp`` module must be"
+msgstr "``network_api.connect_tcp`` 모듈은 다음과 같아야 합니다."
+
+#: ../../Instance_Setup/Instance_Setup.rst:164
+#: fc6ca227cd904333916e81b4a7093acc
+msgid "importable (the script imports ``TCP_Server_Base``"
+msgstr "가져오기 가능(스크립트는 ``TCP_Server_Base``를 가져옵니다)"
+
+#: ../../Instance_Setup/Instance_Setup.rst:165
+#: dcc9c410853247b0a3302c2c41f6fe13
+msgid "and ``TCP_Client_Base`` from there)."
+msgstr "및 거기에서 ``TCP_Client_Base``)."

@@ -1,0 +1,253 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, RayXu
+# This file is distributed under the same license as the PyFlow package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PyFlow\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-14 16:43+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.10.3\n"
+
+#: ../../Instance_Setup/Instance_Setup.rst:3 707444a8cdb246fd81a189c038518c82
+msgid "Flow Setup Launcher"
+msgstr "流程设置启动器"
+
+#: ../../Instance_Setup/Instance_Setup.rst:5 a611d1bbc1bc4b12a9db0997909626bc
+msgid ""
+"The ``flow_setup.py`` script is a launcher for the TCP server/client "
+"framework defined in ``connect_tcp.py``. It allows you to quickly spawn a "
+"single server or client instance either interactively or via command‑line "
+"arguments. Each launched instance runs in a separate terminal window (or "
+"background process on headless systems)."
+msgstr ""
+"“flow_setup.py” 脚本是“connect_tcp.py” 中定义的 TCP "
+"服务器/客户端框架的启动器。它允许您以交互方式或通过命令行参数快速生成单个服务器或客户端实例。每个启动的实例都在单独的终端窗口（或无头系统上的后台进程）中运行。"
+
+#: ../../Instance_Setup/Instance_Setup.rst:12 bc0bbe4590e04437827678fe85f482fb
+msgid ""
+"**Note:** This launcher supports only **one server** and **one client** "
+"instance at a time. Adding a new server or client configuration will "
+"completely overwrite any previous configuration of the same type."
+msgstr ""
+"**注意：** 此启动器一次仅支持 **一个服务器** 和 **一个客户端** 实例。添加新的服务器或客户端配置将完全覆盖任何先前的相同类型的配置。"
+
+#: ../../Instance_Setup/Instance_Setup.rst:18 146d87f809054469be52a0d4174907fc
+msgid "Features"
+msgstr "特征"
+
+#: ../../Instance_Setup/Instance_Setup.rst:20 ea5ca94177b349b3852287e9327f792e
+msgid ""
+"**Interactive mode** – step‑by‑step creation of a server or client instance."
+msgstr "**交互模式** – 逐步创建服务器或客户端实例。"
+
+#: ../../Instance_Setup/Instance_Setup.rst:22 bb06f53ddbea4dd09b99e288569f858d
+msgid "**Command‑line mode** – launch with all parameters in one command."
+msgstr "**命令行模式** – 在一个命令中使用所有参数启动。"
+
+#: ../../Instance_Setup/Instance_Setup.rst:24 11bd4b3ce97743e0857c109ae9bc2286
+msgid ""
+"**Persistent configuration** – stores the latest instance definitions in "
+"``setup.json`` (same directory as the script). Each type (server/client) "
+"holds **only one** configuration, which is overwritten on each update."
+msgstr ""
+"**持久配置** – "
+"将最新的实例定义存储在“setup.json”（与脚本相同的目录）中。每种类型（服务器/客户端）仅保留一个配置，该配置在每次更新时都会被覆盖。"
+
+#: ../../Instance_Setup/Instance_Setup.rst:29 7b3f201c93c349719f4128f05cc194bf
+msgid ""
+"**Cross‑platform** – supports Windows (cmd), Linux (gnome‑terminal, xterm, "
+"or background), and macOS (Terminal.app)."
+msgstr ""
+"**跨平台** – 支持 Windows (cmd)、Linux（gnome 终端、xterm 或后台）和 macOS (Terminal.app)。"
+
+#: ../../Instance_Setup/Instance_Setup.rst:32 89b17f1fa60241a288381f74072aa273
+msgid ""
+"**Complete parameter support** – all parameters accepted by "
+"``TCP_Server_Base`` and ``TCP_Client_Base`` can be stored in ``setup.json`` "
+"for fine‑tuning."
+msgstr ""
+"**完整的参数支持** – ``TCP_Server_Base`` 和 ``TCP_Client_Base`` "
+"接受的所有参数都可以存储在``setup.json`` 中以进行微调。"
+
+#: ../../Instance_Setup/Instance_Setup.rst:37 ca859ffa1d4140cab68092170525c59f
+msgid "Usage"
+msgstr "用法"
+
+#: ../../Instance_Setup/Instance_Setup.rst:40 1935db82ef7f4dbeb08d386a49aba876
+msgid "Interactive Mode"
+msgstr "互动模式"
+
+#: ../../Instance_Setup/Instance_Setup.rst:42 86f8dafb1c9d4adaa4666b1dea52af23
+msgid "Run the script without any arguments:"
+msgstr "不带任何参数运行脚本："
+
+#: ../../Instance_Setup/Instance_Setup.rst:48 d516fe21071e448da15df91f07353fc8
+msgid "The script will ask you to:"
+msgstr "该脚本将要求您："
+
+#: ../../Instance_Setup/Instance_Setup.rst:50 41684f03f6d7460f87fed8f4bef8f1e5
+msgid "Choose the type (0 for Server, 1 for Client)."
+msgstr "选择类型（0 表示服务器，1 表示客户端）。"
+
+#: ../../Instance_Setup/Instance_Setup.rst:51 750440862d7545e9bc4f137f36983fd6
+msgid "Enter the bind address and port (``host:port``)."
+msgstr "输入绑定地址和端口（``host:port``）。"
+
+#: ../../Instance_Setup/Instance_Setup.rst:52 a938572ed1dd43f7988e382ec9fea306
+msgid "If Client, also enter the server address and port to connect to."
+msgstr "如果是客户端，还需输入要连接的服务器地址和端口。"
+
+#: ../../Instance_Setup/Instance_Setup.rst:53 3f30b7f3c46e42c19eae6344b424e1f7
+msgid ""
+"Decide whether to add another instance (if you add the same type again, the "
+"previous configuration of that type is overwritten)."
+msgstr "决定是否添加其他实例（如果再次添加相同类型，则覆盖该类型之前的配置）。"
+
+#: ../../Instance_Setup/Instance_Setup.rst:55 e8b6550fe5eb426f8478c1b3fef81160
+msgid ""
+"If ``setup.json`` already exists, you will be prompted to either reuse the "
+"existing configuration (launch the stored instances) or overwrite it with "
+"new definitions."
+msgstr "如果“setup.json”已存在，系统将提示您重用现有配置（启动存储的实例）或使用新定义覆盖它。"
+
+#: ../../Instance_Setup/Instance_Setup.rst:60 b222bf87298747c6b526d72e1459ad83
+msgid ""
+"**Important:** When you choose to overwrite, the old server/client "
+"configuration is **completely replaced** by the new one. There is no "
+"merging."
+msgstr "**重要提示：** 当您选择覆盖时，旧的服务器/客户端配置将被新的配置**完全替换**。没有合并。"
+
+#: ../../Instance_Setup/Instance_Setup.rst:65 ad560cd1d404495583c74b5929235453
+msgid "Command‑line Mode"
+msgstr "命令行模式"
+
+#: ../../Instance_Setup/Instance_Setup.rst:67 50a9125f52a54c9b82c66cf616e06d71
+msgid "Use the following options:"
+msgstr "使用以下选项："
+
+#: ../../Instance_Setup/Instance_Setup.rst:82 f7f3b3263fdf457c908ea18b74dccea9
+msgid "Examples"
+msgstr "示例"
+
+#: ../../Instance_Setup/Instance_Setup.rst:84 13847166f8d54c9db943e1e55cf66c55
+msgid "**Launch a single server** on ``127.0.0.1:8000``:"
+msgstr "**在“127.0.0.1:8000”上启动单个服务器**："
+
+#: ../../Instance_Setup/Instance_Setup.rst:90 aa92290b83324661a23d2343f7ca56fb
+msgid ""
+"**Launch a client** bound to port ``9000``, connecting to a server at "
+"``127.0.0.1:8000``:"
+msgstr "**启动绑定到端口“9000”的客户端**，连接到“127.0.0.1:8000”的服务器："
+
+#: ../../Instance_Setup/Instance_Setup.rst:97 9d2ca3944f984434b4ecb579b075ccc4
+msgid ""
+"**Launch from an existing configuration** (if ``setup.json`` is present):"
+msgstr "**从现有配置启动**（如果存在“setup.json”）："
+
+#: ../../Instance_Setup/Instance_Setup.rst:105
+#: d88aa64a570f4f36baf5c7c92d4bd861
+msgid "Configuration File"
+msgstr "配置文件"
+
+#: ../../Instance_Setup/Instance_Setup.rst:107
+#: cfb0db3d5e23418d9c93ddb2d34548d4
+msgid ""
+"The script writes a file named ``setup.json`` in the same directory. Its "
+"structure is:"
+msgstr "该脚本在同一目录中写入一个名为“setup.json”的文件。其结构为："
+
+#: ../../Instance_Setup/Instance_Setup.rst:131
+#: 0a2b6c0e312a49de8ed7838e045b3b66
+msgid ""
+"**Each list contains at most one object.** When a new server or client "
+"configuration is added, the entire list for that type is replaced."
+msgstr "**每个列表最多包含一个对象。** 添加新的服务器或客户端配置时，该类型的整个列表都会被替换。"
+
+#: ../../Instance_Setup/Instance_Setup.rst:136
+#: 1a256391599446d99c3cc375639f251c
+msgid "Custom Parameters"
+msgstr "自定义参数"
+
+#: ../../Instance_Setup/Instance_Setup.rst:138
+#: 36cefa4820cd42ee93fdb560be1b1032
+msgid ""
+"You can manually edit ``setup.json`` to include any parameter accepted by "
+"``TCP_Server_Base`` or ``TCP_Client_Base`` (see the source code for the full"
+" list). These custom values are retained when the launcher overwrites the "
+"configuration (since the script reads the existing config and updates it "
+"with user‑provided values, but if you choose to overwrite, the old config is"
+" discarded and only the new fields are saved – so if you want custom "
+"parameters, you should add them after the first launch or edit the file "
+"manually)."
+msgstr ""
+"您可以手动编辑“setup.json”以包含“TCP_Server_Base”或“TCP_Client_Base”接受的任何参数（完整列表请参阅源代码）。当启动器覆盖配置时，这些自定义值将被保留（因为脚本读取现有配置并使用用户提供的值更新它，但如果您选择覆盖，旧配置将被丢弃，仅保存新字段"
+" - 因此，如果您需要自定义参数，您应该在首次启动后添加它们或手动编辑文件）。"
+
+#: ../../Instance_Setup/Instance_Setup.rst:150
+#: e58290a2c5f3492bafa47f15b7c2958f
+msgid "Internal Operation"
+msgstr "内部运作"
+
+#: ../../Instance_Setup/Instance_Setup.rst:152
+#: 6655764b01644b92910338c01d38b0cb
+msgid "Each instance is launched in a new terminal window"
+msgstr "每个实例都在新的终端窗口中启动"
+
+#: ../../Instance_Setup/Instance_Setup.rst:153
+#: 6824028a99254c77a55fb56d51b5e9a5
+msgid "(or background process)."
+msgstr "（或后台进程）。"
+
+#: ../../Instance_Setup/Instance_Setup.rst:154
+#: 0a09353648d44ba2a840fc1cf8a850bc
+msgid "The configuration is passed via a temporary JSON"
+msgstr "配置通过临时 JSON 传递"
+
+#: ../../Instance_Setup/Instance_Setup.rst:155
+#: f6327281e35a4304b404563d00301a1a
+msgid "file to avoid shell escaping issues."
+msgstr "文件以避免 shell 转义问题。"
+
+#: ../../Instance_Setup/Instance_Setup.rst:156
+#: 997e364f35714b18b1e47af641ce58db
+msgid "If an instance fails to start, the error is"
+msgstr "如果实例无法启动，错误为"
+
+#: ../../Instance_Setup/Instance_Setup.rst:157
+#: 4404c088296e4c35b49ed59eca3b6678
+msgid "displayed and the window pauses for inspection."
+msgstr "显示并且窗口暂停以进行检查。"
+
+#: ../../Instance_Setup/Instance_Setup.rst:160
+#: 2b8f982006184d36b06d4ac5579a36f4
+msgid "Requirements"
+msgstr "要求"
+
+#: ../../Instance_Setup/Instance_Setup.rst:162
+#: f10fabd9883942b780cd0822da245837
+msgid "Python 3.6+"
+msgstr "Python 3.6+"
+
+#: ../../Instance_Setup/Instance_Setup.rst:163
+#: f464e1a571fa46388937f3236b36d3bf
+msgid "The ``network_api.connect_tcp`` module must be"
+msgstr "``network_api.connect_tcp`` 模块必须是"
+
+#: ../../Instance_Setup/Instance_Setup.rst:164
+#: fc6ca227cd904333916e81b4a7093acc
+msgid "importable (the script imports ``TCP_Server_Base``"
+msgstr "可导入（脚本导入``TCP_Server_Base``"
+
+#: ../../Instance_Setup/Instance_Setup.rst:165
+#: dcc9c410853247b0a3302c2c41f6fe13
+msgid "and ``TCP_Client_Base`` from there)."
+msgstr "和来自那里的“TCP_Client_Base”）。"
