@@ -8,31 +8,31 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PyFlow\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-20 22:54+0800\n"
+"POT-Creation-Date: 2026-08-08 13:22+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.10.3\n"
+"Generated-By: Babel 2.18.0\n"
 
-#: ../../Network_APIs/UDP_APIs.rst:2 7ac70647d42046318dfab3dceb5f676e
+#: ../../Network_APIs/UDP_APIs.rst:2 48d90847409449479efa183a5fcb22d1
 msgid "The UDP API"
 msgstr "UDP API"
 
-#: ../../Network_APIs/UDP_APIs.rst:5 fb9b5b772ae14d90a447cc256defff89
+#: ../../Network_APIs/UDP_APIs.rst:5 bd2ac4f623a64f0bb6da32900f4a9652
 msgid "UDP setup API"
 msgstr "UDP設定API"
 
-#: ../../Network_APIs/UDP_APIs.rst:7 bb47224d494c475181b63895cfd49494
+#: ../../Network_APIs/UDP_APIs.rst:7 5a906ddeb2cd4ab2abfb8f38906ee066
 msgid ""
 "The UDP Setup API is used to create a UDP endpoint. The UDP endpoint in the "
 "protocol is usually used for service discovery, broadcast, and simple "
 "request-response communication."
 msgstr "UDP 設定 API 用於建立 UDP 端點。協定中的UDP端點通常用於服務發現、廣播和簡單的請求-回應通訊。"
 
-#: ../../Network_APIs/UDP_APIs.rst:17 ffd0fd70856b4c5cacd0494ff5c22ddf
+#: ../../Network_APIs/UDP_APIs.rst:17 8db631634047467c9e1ad301a4722f2f
 msgid ""
 "The UDP endpoint is defined in the ``UDP`` class. The socket is created and "
 "bound in the constructor. Both ``SO_REUSEADDR`` and ``SO_BROADCAST`` are set"
@@ -41,51 +41,51 @@ msgstr ""
 "UDP 端點在「UDP」類別中定義。套接字在建構函式中建立並綁定。 ``SO_REUSEADDR`` 和 ``SO_BROADCAST`` "
 "都是自動設定的。"
 
-#: ../../Network_APIs/UDP_APIs.rst:21 6e2bac787d354847b41912c1076b5b8b
+#: ../../Network_APIs/UDP_APIs.rst:21 a09f0e0a6792415c9bdad1c3b81c4124
 msgid "Parameters of the ``__init__`` method are as follows:"
 msgstr "“__init__”方法的參數如下："
 
-#: ../../Network_APIs/UDP_APIs.rst:23 9820cd4f16d74b8c81448c9fd2d7e935
+#: ../../Network_APIs/UDP_APIs.rst:23 c585650ac0e24b5f83429552f5a3efab
 msgid ""
 "``host``: The interface to bind to. Default is ``\"0.0.0.0\"`` (all "
 "interfaces)."
 msgstr "``host``：要綁定的介面。預設值為“0.​​0.0.0”（所有介面）。"
 
-#: ../../Network_APIs/UDP_APIs.rst:25 386de0739f014490ad13bba46e82662c
+#: ../../Network_APIs/UDP_APIs.rst:25 7c700c3058e140d691cba2496fcbe8ab
 msgid ""
 "``port``: The port to bind to. Default is ``0``, which lets the OS choose an"
 " available port dynamically."
 msgstr "``port``：要綁定的連接埠。預設值為“0”，它允許作業系統動態選擇可用連接埠。"
 
-#: ../../Network_APIs/UDP_APIs.rst:28 19765b62119c4954b63c04fa3bd58de4
+#: ../../Network_APIs/UDP_APIs.rst:28 e139c8fd3b144d28ab56bdbfab192de2
 msgid "Every parameter has a default value:"
 msgstr "每個參數都有一個預設值："
 
-#: ../../Network_APIs/UDP_APIs.rst:30 2f23661c675241bfa68d07923890e076
+#: ../../Network_APIs/UDP_APIs.rst:30 f62373c8960b4f74b016148864aee47b
 msgid "``host``: Default is ``\"0.0.0.0\"``"
 msgstr "``主機``：預設為``\"0.0.0.0\"``"
 
-#: ../../Network_APIs/UDP_APIs.rst:31 24bb2177443b4f22af7be34449274a25
+#: ../../Network_APIs/UDP_APIs.rst:31 b7911d7ffc3f4e2ead53de990dac4fde
 msgid "``port``: Default is ``0``"
 msgstr "“連接埠”：預設為“0”"
 
-#: ../../Network_APIs/UDP_APIs.rst:33 f757e6385e834ab1b9d4e3f47bb37115
+#: ../../Network_APIs/UDP_APIs.rst:33 5f9a9e3e744d4c8ea620ff637ce3cd45
 msgid "*Note: The public API of the UDP endpoint is based on IPv4 form.*"
 msgstr "*註：UDP端點的公共API是基於IPv4形式。 *"
 
-#: ../../Network_APIs/UDP_APIs.rst:36 675973bcdb5848d4ba04448e8e2697b7
+#: ../../Network_APIs/UDP_APIs.rst:36 deb6ef6fd869432e903b27429d9fc756
 msgid "UDP endpoint API"
 msgstr "UDP端點API"
 
-#: ../../Network_APIs/UDP_APIs.rst:38 d5cb638128b54c0582d973e8ed9c58fb
+#: ../../Network_APIs/UDP_APIs.rst:38 ce19d88706674f1086f2ba64c50d2c51
 msgid "The public methods available on a ``UDP`` instance are:"
 msgstr "``UDP`` 實例上可用的公共方法有："
 
-#: ../../Network_APIs/UDP_APIs.rst:51 fd4534b1a64445a3a1526bdc080ed655
+#: ../../Network_APIs/UDP_APIs.rst:55 1ba1fc4929cf4895b97cf9904de06ff7
 msgid "``send``"
 msgstr "``發送``"
 
-#: ../../Network_APIs/UDP_APIs.rst:52 6dcc2e4e4d1045d2bb7131c1947cdb74
+#: ../../Network_APIs/UDP_APIs.rst:56 fcc1062432de475ead6c5dccece6dd8a
 msgid ""
 "Wraps ``socket.sendto(data, addr)``. The ``addr`` parameter should be a "
 "``(host, port)`` tuple. Raises ``OSError`` if the socket is closed or the "
@@ -94,11 +94,11 @@ msgstr ""
 "包裝``socket.sendto(data, addr)``。 「addr」參數應該是一個「(host, "
 "port)」元組。如果套接字關閉或位址無效，則引發「OSError」。請注意，成功退貨並不代表確認已送達。"
 
-#: ../../Network_APIs/UDP_APIs.rst:57 7f3bac732b644bc793e79ee3e939ed36
+#: ../../Network_APIs/UDP_APIs.rst:61 2dcecd83225549af9e1914c841c665ce
 msgid "``broadcast``"
 msgstr "「廣播」"
 
-#: ../../Network_APIs/UDP_APIs.rst:58 f3766e77fd7c4254965f707ce89f3801
+#: ../../Network_APIs/UDP_APIs.rst:62 797c88a9bae54173b734768f1f47777b
 msgid ""
 "Sends a datagram to the limited broadcast address ``255.255.255.255`` on the"
 " given port. This is implemented by calling ``send`` with the address "
@@ -107,37 +107,33 @@ msgstr ""
 "將資料封包傳送到給定連接埠上的有限廣播位址「255.255.255.255」。這是透過使用位址 ``(\"255.255.255.255\", "
 "port)`` 呼叫 ``send`` 來實現的。"
 
-#: ../../Network_APIs/UDP_APIs.rst:62 ebd100f1bb5c40bba57dc3651aaac40a
+#: ../../Network_APIs/UDP_APIs.rst:66 3a7f25615c164188b51be35f7397b852
 msgid "``listen``"
 msgstr "「聽」"
 
-#: ../../Network_APIs/UDP_APIs.rst:63 81c04a9418d14337962380e2a4abbed0
+#: ../../Network_APIs/UDP_APIs.rst:67 f30c9edb5def4591863e083e0cda785b
 msgid ""
 "Starts a daemon thread that receives incoming datagrams. The ``handler`` is "
 "a callable ``handler(data, addr)`` that is invoked for each datagram "
-"received. Handler exceptions are logged via the ``logging`` module rather "
-"than propagated, so a faulty handler does not terminate the receive loop. "
-"This method is idempotent: calling it while the receive thread is already "
-"running does nothing."
+"received. Handler exceptions are logged rather than propagated, so a faulty "
+"handler does not terminate the receive loop. This method is idempotent: "
+"calling it while the receive thread is already running does nothing."
 msgstr ""
 "啟動接收傳入資料報的守護線程。 “handler”是一個可呼叫的“handler(data, "
-"addr)”，為每個收到的資料報呼叫。處理程序異常透過「logging」模組記錄而不是傳播，因此錯誤的處理程序不會終止接收循環。此方法是冪等的：在接收執行緒已經運行時呼叫它不會執行任何操作。"
+"addr)”，為每個收到的資料報呼叫。處理程序異常被記錄而不是傳播，因此錯誤的處理程序不會終止接收循環。此方法是冪等的：在接收執行緒已經運行時呼叫它不會執行任何操作。"
 
-#: ../../Network_APIs/UDP_APIs.rst:71 4cc3c9f1ef8442e09a85771e9d915686
+#: ../../Network_APIs/UDP_APIs.rst:75 2c8ac6d54e764ed8a00718b736d56480
 msgid "``close``"
 msgstr "``關閉``"
 
-#: ../../Network_APIs/UDP_APIs.rst:72 a803a622d9094c33b30e339d7a04001e
+#: ../../Network_APIs/UDP_APIs.rst:76 e0841718e2bc4e709b51401a9814bd61
 msgid ""
-"Signals the receive loop to exit and closes the underlying socket. The "
-"``_closed`` flag is set to ``True`` and the socket's ``close()`` method is "
-"called to interrupt any blocking ``recvfrom`` call. This method is "
-"idempotent: calling it multiple times does not raise an error."
-msgstr ""
-"通知接收循環退出並關閉底層套接字。 ``_close`` 標誌設定為 ``True`` 並且呼叫套接字的 ``close()`` 方法來中斷任何阻塞的 "
-"``recvfrom`` 呼叫。此方法是冪等的：多次呼叫它不會引發錯誤。"
+"Signals the receive loop to exit and closes the underlying socket, "
+"interrupting any blocking ``recvfrom`` call. This method is idempotent: "
+"calling it multiple times does not raise an error."
+msgstr "通知接收循環退出並關閉底層套接字，中斷任何阻塞的「recvfrom」呼叫。此方法是冪等的：多次呼叫它不會引發錯誤。"
 
-#: ../../Network_APIs/UDP_APIs.rst:78 1933f04ec7f14b4bbf14fe1b7ad4eb55
+#: ../../Network_APIs/UDP_APIs.rst:81 e3a710c0880c4d2c8426b3c8f50209a1
 msgid ""
 "*Note: When ``listen`` is called after ``close``, a* *``RuntimeError`` *with"
 " the message \"endpoint is closed\" is* *raised, because the underlying "
@@ -145,70 +141,112 @@ msgid ""
 msgstr ""
 "*注意：當在“close”之後呼叫“listen”時，會引發* *“RuntimeError”*，並顯示訊息“端點已關閉”，因為底層套接字不再可用。 *"
 
-#: ../../Network_APIs/UDP_APIs.rst:91 1203a76a754d4788afbc5f1433790b60
+#: ../../Network_APIs/UDP_APIs.rst:85 f34839514ce84d0297503a952cbbf238
+msgid "``announce``"
+msgstr "「宣布」"
+
+#: ../../Network_APIs/UDP_APIs.rst:86 c264f9ae9fa74effb142fa668b27a0a6
+msgid ""
+"Periodically broadcasts a discovery announcement to "
+"``255.255.255.255:DISCOVERY_PORT`` on a daemon thread until ``close()`` is "
+"called. ``payload`` is required and is the announced bytes (a ``str`` is "
+"encoded as UTF-8; ``bytes`` is sent as-is). ``interval`` is the seconds "
+"between announcements (default ``5.0``)."
+msgstr ""
+"定期向守護線程上的“255.255.255.255:DISCOVERY_PORT”廣播發現公告，直到呼叫“close()”。 「payload」 "
+"是必需的，並且是聲明的位元組（“str” 編碼為 UTF-8；“bytes” 會按原樣發送）。 「interval」 "
+"是公告之間的秒數（預設為「5.0」）。"
+
+#: ../../Network_APIs/UDP_APIs.rst:92 e54bee7062ce465a856049673b505b04
+msgid "``discover``"
+msgstr "``發現``"
+
+#: ../../Network_APIs/UDP_APIs.rst:93 b10fe22a41e44142b814cd9ae1fc1feb
+msgid ""
+"Listens for ``timeout`` seconds and collects incoming announcements, "
+"returning a list of ``(host, port, payload_bytes)`` tuples. The receiving "
+"endpoint must be bound to ``DISCOVERY_PORT`` (e.g. ``UDP(\"0.0.0.0\", "
+"DISCOVERY_PORT)``); the announcing endpoint should bind an ephemeral port "
+"instead. The receive thread keeps running after the call returns — call "
+"``close()`` to stop it."
+msgstr ""
+"監聽「逾時」秒並收集傳入的公告，返回「(主機、連接埠、有效負載位元組)」元組清單。接收端點必須綁定到``DISCOVERY_PORT``（例如``UDP(\"0.0.0.0\","
+" DISCOVERY_PORT)``）；宣告端點應該綁定一個臨時連接埠。接收線程在呼叫返回後繼續運行——調用“close()”來停止它。"
+
+#: ../../Network_APIs/UDP_APIs.rst:100 2dd107eca81843edaf11c94d90ef025f
+msgid "``DISCOVERY_PORT``"
+msgstr "``DISCOVERY_PORT``"
+
+#: ../../Network_APIs/UDP_APIs.rst:101 786c6696e0544b2cbf38854669b7d9dc
+msgid ""
+"Module constant. Fixed UDP port (``65004``) used for service discovery "
+"announcements."
+msgstr "用於服務發現公告的固定 UDP 連接埠（``65004``）。"
+
+#: ../../Network_APIs/UDP_APIs.rst:113 ca4105a7361344d8a9fd0811516e352e
 msgid "``port``"
 msgstr "``連接埠``"
 
-#: ../../Network_APIs/UDP_APIs.rst:92 922c0696bc7a4b86ac0fecc7c5bc3c42
+#: ../../Network_APIs/UDP_APIs.rst:114 6072e2f250ff4029a58de0eadd6c09a9
 msgid ""
 "Returns the port number the socket is bound to. Useful when ``port=0`` was "
 "passed to the constructor and the OS assigned a dynamic port."
 msgstr "傳回套接字綁定到的連接埠號碼。當“port=0”傳遞給建構函數並且作業系統分配動態連接埠時很有用。"
 
-#: ../../Network_APIs/UDP_APIs.rst:96 07bfd5fbbcb84613a87204db7ec0fe46
+#: ../../Network_APIs/UDP_APIs.rst:118 8e98c02f445f47a6807c651ba0a50c00
 msgid "``local_addr``"
 msgstr "``本地地址``"
 
-#: ../../Network_APIs/UDP_APIs.rst:97 f8bf4023c83544ecbb2e5bb4905734ec
+#: ../../Network_APIs/UDP_APIs.rst:119 9c53682c290b455b8c10a015b1e2af50
 msgid "Returns the full ``(host, port)`` tuple that the socket is bound to."
 msgstr "傳回套接字綁定到的完整「(host, port)」元組。"
 
-#: ../../Network_APIs/UDP_APIs.rst:100 fb97d4805526494e907992ef4aeb911d
+#: ../../Network_APIs/UDP_APIs.rst:122 1f8fd2c9faf6405581d264c1014f307d
 msgid ""
 "The ``UDP`` class also supports the context manager protocol, so it can be "
 "used in a ``with`` statement:"
 msgstr "「UDP」類別也支援上下文管理器協議，因此它可以在「with」語句中使用："
 
-#: ../../Network_APIs/UDP_APIs.rst:108 e9449ba0c7c5420096778154a445bb60
+#: ../../Network_APIs/UDP_APIs.rst:130 1055ad9cf8c445788cb5c06e36cc749c
 msgid ""
 "*Note: The context manager calls ``close`` automatically when* *the ``with``"
 " block exits.*"
 msgstr "*注意：當“with”區塊退出時，上下文管理器會自動呼叫“close”。 *"
 
-#: ../../Network_APIs/UDP_APIs.rst:112 b23e6af001c14c8d8e60704aee0a6c32
+#: ../../Network_APIs/UDP_APIs.rst:134 6f73edcc5d514fab92dab943d56a42ed
 msgid "Key differences from TCP"
 msgstr "與 TCP 的主要區別"
 
-#: ../../Network_APIs/UDP_APIs.rst:114 6e4aeae292844e47a99f9fdefba07b5b
+#: ../../Network_APIs/UDP_APIs.rst:136 cec3431ed6014237ae45bf25aa5f739a
 msgid ""
 "**No file transfer**. UDP is unreliable; use TCP classes for file transfers."
 msgstr "**無檔案傳輸**。 UDP不可靠；使用 TCP 類別進行檔案傳輸。"
 
-#: ../../Network_APIs/UDP_APIs.rst:115 7fc9094ac11e4f98a12ffa40b12212ae
+#: ../../Network_APIs/UDP_APIs.rst:137 4435faefdbde444c96758f1562b6d95b
 msgid ""
 "**No connection tracking**. Each datagram carries its own source address."
 msgstr "**無連線追蹤**。每個資料報都帶有自己的來源位址。"
 
-#: ../../Network_APIs/UDP_APIs.rst:116 bd05f8df219a40fbad4e3d300bbf0da2
+#: ../../Network_APIs/UDP_APIs.rst:138 6fa92fa1e8124b509949ea03ec025357
 msgid ""
 "**No port allocation system**. UDP does not need ephemeral ports for data "
 "connections."
 msgstr "**無連接埠分配系統**。 UDP 不需要臨時連接埠來進行資料連線。"
 
-#: ../../Network_APIs/UDP_APIs.rst:118 05ae0d338e1f49a9bda8378fafc899e1
+#: ../../Network_APIs/UDP_APIs.rst:140 da55b5325e194f8180d7b319a2d3e0fd
 msgid ""
 "**Broadcast**. UDP's standout feature — one send reaches all listeners on "
 "the subnet."
 msgstr "**播送**。 UDP 的突出功能是一次發送到達子網路上的所有偵聽器。"
 
-#: ../../Network_APIs/UDP_APIs.rst:122 a3e53bc01af645319a8f91c49937be74
+#: ../../Network_APIs/UDP_APIs.rst:144 c6ff37c4323a406e8bcfe2e18e850ce3
 msgid "See Also"
 msgstr "參見"
 
-#: ../../Network_APIs/UDP_APIs.rst:124 898847ec68f04de2be11cd912ba550ac
+#: ../../Network_APIs/UDP_APIs.rst:146 2d001ccf2aad475b8328994e5ef3fa21
 msgid ":doc:`TCP_Server_APIs` — TCP server."
 msgstr ":doc:`TCP_Server_APIs` — TCP 伺服器。"
 
-#: ../../Network_APIs/UDP_APIs.rst:125 f27ba0e1f1484cebbf6e3315ca5d1104
+#: ../../Network_APIs/UDP_APIs.rst:147 eb4a490682e44b33aca8080a22aa8555
 msgid ":doc:`TCP_Client_APIs` — TCP client."
 msgstr ":doc:`TCP_Client_APIs` — TCP 客戶端。"

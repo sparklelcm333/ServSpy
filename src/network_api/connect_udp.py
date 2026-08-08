@@ -1,10 +1,18 @@
 import logging
 import socket
 import threading
+import time
 
 logger = logging.getLogger(__name__)
 
 MAX_DATAGRAM = 65535
+
+# Fixed UDP port for service discovery; picked outside the test
+# port range (65000-65003) and the default TCP port (65432).
+DISCOVERY_PORT = 65004
+
+# Wire-format prefix for discovery announcements.
+DISCOVERY_PREFIX = "SERVSPY_DISCOVERY"
 
 
 class UDP:
@@ -16,6 +24,7 @@ class UDP:
         self._addr = self._socket.getsockname()
         self._recv_thread = None
         self._closed = False
+        self._announce_thread = None
 
     @property
     def local_addr(self):
@@ -54,6 +63,38 @@ class UDP:
                 handler(data, addr)
             except Exception:
                 logger.exception(f"handler error from {addr}")
+
+    def announce(self, payload, interval=5.0):
+        if self._closed:
+            raise RuntimeError("endpoint is closed")
+        if self._announce_thread and self._announce_thread.is_alive():
+            return
+        if isinstance(payload, str):
+            payload = payload.encode("utf-8")
+        self._announce_thread = threading.Thread(
+            target=self._announce_loop, args=(payload, interval), daemon=True
+        )
+        self._announce_thread.start()
+
+    def _announce_loop(self, payload, interval):
+        while not self._closed:
+            try:
+                self.broadcast(payload, DISCOVERY_PORT)
+            except OSError:
+                if self._closed:
+                    return
+                raise
+            time.sleep(interval)
+
+    def discover(self, timeout=1.0):
+        results = []
+
+        def handler(data, addr):
+            results.append((addr[0], addr[1], data))
+
+        self.listen(handler)
+        time.sleep(timeout)
+        return results
 
     def close(self):
         self._closed = True

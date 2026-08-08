@@ -10,6 +10,7 @@ if package_dictionary not in os.sys.path:
     sys.path.insert(0, package_dictionary)
 
 from src.network_api.connect_udp import UDP
+import src.network_api.connect_udp as connect_udp
 
 
 def test_udp_server_init(udp_server):
@@ -156,3 +157,55 @@ def test_udp_listen_stops_on_close():
     udp.close()
     thread.join(timeout=1)
     assert not thread.is_alive()
+
+
+def _free_discovery_port(monkeypatch):
+    probe = UDP("127.0.0.1", 0)
+    port = probe.port
+    probe.close()
+    monkeypatch.setattr(connect_udp, "DISCOVERY_PORT", port)
+    return port
+
+
+def test_udp_announce_discover_roundtrip(monkeypatch):
+    port = _free_discovery_port(monkeypatch)
+    announcer = UDP("0.0.0.0", 0)
+    announcer.announce(interval=0.1, payload="SERVSPY_DISCOVERY v1 65432")
+    try:
+        listener = UDP("0.0.0.0", port)
+        found = listener.discover(timeout=0.6)
+        assert any(
+            data.startswith(b"SERVSPY_DISCOVERY") and b"65432" in data
+            for _, _, data in found
+        )
+        assert all(host for host, _, _ in found)
+    finally:
+        announcer.close()
+        listener.close()
+
+
+def test_udp_announce_idempotent():
+    announcer = UDP("0.0.0.0", 0)
+    announcer.announce(interval=5.0, payload=b"x")
+    thread = announcer._announce_thread
+    announcer.announce(interval=5.0, payload=b"y")
+    try:
+        assert announcer._announce_thread is thread
+    finally:
+        announcer.close()
+
+
+def test_udp_announce_stops_on_close():
+    announcer = UDP("0.0.0.0", 0)
+    announcer.announce(interval=0.05, payload=b"x")
+    thread = announcer._announce_thread
+    announcer.close()
+    thread.join(timeout=1)
+    assert not thread.is_alive()
+
+
+def test_udp_announce_after_close_raises():
+    udp = UDP("127.0.0.1", 0)
+    udp.close()
+    with pytest.raises(RuntimeError, match="endpoint is closed"):
+        udp.announce(interval=1.0, payload=b"x")

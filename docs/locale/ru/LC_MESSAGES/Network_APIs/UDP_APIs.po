@@ -8,24 +8,24 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PyFlow\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-20 22:54+0800\n"
+"POT-Creation-Date: 2026-08-08 13:22+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.10.3\n"
+"Generated-By: Babel 2.18.0\n"
 
-#: ../../Network_APIs/UDP_APIs.rst:2 7ac70647d42046318dfab3dceb5f676e
+#: ../../Network_APIs/UDP_APIs.rst:2 48d90847409449479efa183a5fcb22d1
 msgid "The UDP API"
 msgstr "UDP-API"
 
-#: ../../Network_APIs/UDP_APIs.rst:5 fb9b5b772ae14d90a447cc256defff89
+#: ../../Network_APIs/UDP_APIs.rst:5 bd2ac4f623a64f0bb6da32900f4a9652
 msgid "UDP setup API"
 msgstr "API настройки UDP"
 
-#: ../../Network_APIs/UDP_APIs.rst:7 bb47224d494c475181b63895cfd49494
+#: ../../Network_APIs/UDP_APIs.rst:7 5a906ddeb2cd4ab2abfb8f38906ee066
 msgid ""
 "The UDP Setup API is used to create a UDP endpoint. The UDP endpoint in the "
 "protocol is usually used for service discovery, broadcast, and simple "
@@ -35,7 +35,7 @@ msgstr ""
 "точка UDP в протоколе обычно используется для обнаружения служб, "
 "широковещательной рассылки и простой связи запрос-ответ."
 
-#: ../../Network_APIs/UDP_APIs.rst:17 ffd0fd70856b4c5cacd0494ff5c22ddf
+#: ../../Network_APIs/UDP_APIs.rst:17 8db631634047467c9e1ad301a4722f2f
 msgid ""
 "The UDP endpoint is defined in the ``UDP`` class. The socket is created and "
 "bound in the constructor. Both ``SO_REUSEADDR`` and ``SO_BROADCAST`` are set"
@@ -45,11 +45,11 @@ msgstr ""
 "в конструкторе. И SO_REUSEADDR, и SO_BROADCAST устанавливаются "
 "автоматически."
 
-#: ../../Network_APIs/UDP_APIs.rst:21 6e2bac787d354847b41912c1076b5b8b
+#: ../../Network_APIs/UDP_APIs.rst:21 a09f0e0a6792415c9bdad1c3b81c4124
 msgid "Parameters of the ``__init__`` method are as follows:"
 msgstr "Параметры метода ``__init__`` следующие:"
 
-#: ../../Network_APIs/UDP_APIs.rst:23 9820cd4f16d74b8c81448c9fd2d7e935
+#: ../../Network_APIs/UDP_APIs.rst:23 c585650ac0e24b5f83429552f5a3efab
 msgid ""
 "``host``: The interface to bind to. Default is ``\"0.0.0.0\"`` (all "
 "interfaces)."
@@ -57,7 +57,7 @@ msgstr ""
 "``host``: интерфейс для привязки. По умолчанию — ``\"0.0.0.0\"`` (все "
 "интерфейсы)."
 
-#: ../../Network_APIs/UDP_APIs.rst:25 386de0739f014490ad13bba46e82662c
+#: ../../Network_APIs/UDP_APIs.rst:25 7c700c3058e140d691cba2496fcbe8ab
 msgid ""
 "``port``: The port to bind to. Default is ``0``, which lets the OS choose an"
 " available port dynamically."
@@ -65,35 +65,35 @@ msgstr ""
 "``port``: порт для привязки. По умолчанию установлено значение «0», что "
 "позволяет ОС динамически выбирать доступный порт."
 
-#: ../../Network_APIs/UDP_APIs.rst:28 19765b62119c4954b63c04fa3bd58de4
+#: ../../Network_APIs/UDP_APIs.rst:28 e139c8fd3b144d28ab56bdbfab192de2
 msgid "Every parameter has a default value:"
 msgstr "Каждый параметр имеет значение по умолчанию:"
 
-#: ../../Network_APIs/UDP_APIs.rst:30 2f23661c675241bfa68d07923890e076
+#: ../../Network_APIs/UDP_APIs.rst:30 f62373c8960b4f74b016148864aee47b
 msgid "``host``: Default is ``\"0.0.0.0\"``"
 msgstr "``хост``: по умолчанию ``\"0.0.0.0\"``"
 
-#: ../../Network_APIs/UDP_APIs.rst:31 24bb2177443b4f22af7be34449274a25
+#: ../../Network_APIs/UDP_APIs.rst:31 b7911d7ffc3f4e2ead53de990dac4fde
 msgid "``port``: Default is ``0``"
 msgstr "``port``: по умолчанию ``0``"
 
-#: ../../Network_APIs/UDP_APIs.rst:33 f757e6385e834ab1b9d4e3f47bb37115
+#: ../../Network_APIs/UDP_APIs.rst:33 5f9a9e3e744d4c8ea620ff637ce3cd45
 msgid "*Note: The public API of the UDP endpoint is based on IPv4 form.*"
 msgstr "*Примечание. Публичный API конечной точки UDP основан на форме IPv4.*"
 
-#: ../../Network_APIs/UDP_APIs.rst:36 675973bcdb5848d4ba04448e8e2697b7
+#: ../../Network_APIs/UDP_APIs.rst:36 deb6ef6fd869432e903b27429d9fc756
 msgid "UDP endpoint API"
 msgstr "API конечной точки UDP"
 
-#: ../../Network_APIs/UDP_APIs.rst:38 d5cb638128b54c0582d973e8ed9c58fb
+#: ../../Network_APIs/UDP_APIs.rst:38 ce19d88706674f1086f2ba64c50d2c51
 msgid "The public methods available on a ``UDP`` instance are:"
 msgstr "Открытые методы, доступные в экземпляре ``UDP``:"
 
-#: ../../Network_APIs/UDP_APIs.rst:51 fd4534b1a64445a3a1526bdc080ed655
+#: ../../Network_APIs/UDP_APIs.rst:55 1ba1fc4929cf4895b97cf9904de06ff7
 msgid "``send``"
 msgstr "``отправить``"
 
-#: ../../Network_APIs/UDP_APIs.rst:52 6dcc2e4e4d1045d2bb7131c1947cdb74
+#: ../../Network_APIs/UDP_APIs.rst:56 fcc1062432de475ead6c5dccece6dd8a
 msgid ""
 "Wraps ``socket.sendto(data, addr)``. The ``addr`` parameter should be a "
 "``(host, port)`` tuple. Raises ``OSError`` if the socket is closed or the "
@@ -104,11 +104,11 @@ msgstr ""
 "недействителен. Обратите внимание, что успешный возврат не подтверждает "
 "доставку."
 
-#: ../../Network_APIs/UDP_APIs.rst:57 7f3bac732b644bc793e79ee3e939ed36
+#: ../../Network_APIs/UDP_APIs.rst:61 2dcecd83225549af9e1914c841c665ce
 msgid "``broadcast``"
 msgstr "``трансляция``"
 
-#: ../../Network_APIs/UDP_APIs.rst:58 f3766e77fd7c4254965f707ce89f3801
+#: ../../Network_APIs/UDP_APIs.rst:62 797c88a9bae54173b734768f1f47777b
 msgid ""
 "Sends a datagram to the limited broadcast address ``255.255.255.255`` on the"
 " given port. This is implemented by calling ``send`` with the address "
@@ -118,43 +118,40 @@ msgstr ""
 "255.255.255.255 на указанном порту. Это реализуется путем вызова send с "
 "адресом (\"255.255.255.255\", порт)``."
 
-#: ../../Network_APIs/UDP_APIs.rst:62 ebd100f1bb5c40bba57dc3651aaac40a
+#: ../../Network_APIs/UDP_APIs.rst:66 3a7f25615c164188b51be35f7397b852
 msgid "``listen``"
 msgstr "``слушай``"
 
-#: ../../Network_APIs/UDP_APIs.rst:63 81c04a9418d14337962380e2a4abbed0
+#: ../../Network_APIs/UDP_APIs.rst:67 f30c9edb5def4591863e083e0cda785b
 msgid ""
 "Starts a daemon thread that receives incoming datagrams. The ``handler`` is "
 "a callable ``handler(data, addr)`` that is invoked for each datagram "
-"received. Handler exceptions are logged via the ``logging`` module rather "
-"than propagated, so a faulty handler does not terminate the receive loop. "
-"This method is idempotent: calling it while the receive thread is already "
-"running does nothing."
+"received. Handler exceptions are logged rather than propagated, so a faulty "
+"handler does not terminate the receive loop. This method is idempotent: "
+"calling it while the receive thread is already running does nothing."
 msgstr ""
 "Запускает поток демона, который получает входящие дейтаграммы. «Обработчик» "
 "— это вызываемый «обработчик(данные, адрес)», который вызывается для каждой "
-"полученной дейтаграммы. Исключения обработчика регистрируются через модуль "
-"logging, а не распространяются, поэтому неисправный обработчик не завершает "
-"цикл приема. Этот метод идемпотентен: его вызов во время работы потока "
-"приема ничего не дает."
+"полученной дейтаграммы. Исключения обработчика регистрируются, а не "
+"распространяются, поэтому неисправный обработчик не завершает цикл приема. "
+"Этот метод идемпотентен: вызов его во время работы потока приема ничего не "
+"дает."
 
-#: ../../Network_APIs/UDP_APIs.rst:71 4cc3c9f1ef8442e09a85771e9d915686
+#: ../../Network_APIs/UDP_APIs.rst:75 2c8ac6d54e764ed8a00718b736d56480
 msgid "``close``"
 msgstr "``закрыть``"
 
-#: ../../Network_APIs/UDP_APIs.rst:72 a803a622d9094c33b30e339d7a04001e
+#: ../../Network_APIs/UDP_APIs.rst:76 e0841718e2bc4e709b51401a9814bd61
 msgid ""
-"Signals the receive loop to exit and closes the underlying socket. The "
-"``_closed`` flag is set to ``True`` and the socket's ``close()`` method is "
-"called to interrupt any blocking ``recvfrom`` call. This method is "
-"idempotent: calling it multiple times does not raise an error."
+"Signals the receive loop to exit and closes the underlying socket, "
+"interrupting any blocking ``recvfrom`` call. This method is idempotent: "
+"calling it multiple times does not raise an error."
 msgstr ""
-"Сигнализирует циклу приема о выходе и закрывает базовый сокет. Флаг "
-"``_closed`` устанавливается в ``True``, и вызывается метод сокета "
-"``close()`` для прерывания любого блокирующего вызова ``recvfrom``. Этот "
-"метод идемпотентен: его многократный вызов не приводит к ошибке."
+"Сигнализирует циклу приема о выходе и закрывает базовый сокет, прерывая "
+"любой блокирующий вызов Recvfrom. Этот метод идемпотентен: его многократный "
+"вызов не приводит к ошибке."
 
-#: ../../Network_APIs/UDP_APIs.rst:78 1933f04ec7f14b4bbf14fe1b7ad4eb55
+#: ../../Network_APIs/UDP_APIs.rst:81 e3a710c0880c4d2c8426b3c8f50209a1
 msgid ""
 "*Note: When ``listen`` is called after ``close``, a* *``RuntimeError`` *with"
 " the message \"endpoint is closed\" is* *raised, because the underlying "
@@ -164,11 +161,61 @@ msgstr ""
 "*``RuntimeError`` *с сообщением «конечная точка закрыта»* *вызывается, "
 "поскольку базовый сокет больше не доступен.*"
 
-#: ../../Network_APIs/UDP_APIs.rst:91 1203a76a754d4788afbc5f1433790b60
+#: ../../Network_APIs/UDP_APIs.rst:85 f34839514ce84d0297503a952cbbf238
+msgid "``announce``"
+msgstr "``объявить``"
+
+#: ../../Network_APIs/UDP_APIs.rst:86 c264f9ae9fa74effb142fa668b27a0a6
+msgid ""
+"Periodically broadcasts a discovery announcement to "
+"``255.255.255.255:DISCOVERY_PORT`` on a daemon thread until ``close()`` is "
+"called. ``payload`` is required and is the announced bytes (a ``str`` is "
+"encoded as UTF-8; ``bytes`` is sent as-is). ``interval`` is the seconds "
+"between announcements (default ``5.0``)."
+msgstr ""
+"Периодически передает объявление об обнаружении на "
+"``255.255.255.255:DISCOVERY_PORT`` в потоке демона до тех пор, пока не будет"
+" вызван ``close()``. ``payload`` является обязательным и представляет собой "
+"объявленные байты (``str`` кодируется как UTF-8; ``bytes`` отправляется как "
+"есть). ``интервал`` — это секунды между объявлениями (по умолчанию ``5.0``)."
+
+#: ../../Network_APIs/UDP_APIs.rst:92 e54bee7062ce465a856049673b505b04
+msgid "``discover``"
+msgstr "``обнаружить``"
+
+#: ../../Network_APIs/UDP_APIs.rst:93 b10fe22a41e44142b814cd9ae1fc1feb
+msgid ""
+"Listens for ``timeout`` seconds and collects incoming announcements, "
+"returning a list of ``(host, port, payload_bytes)`` tuples. The receiving "
+"endpoint must be bound to ``DISCOVERY_PORT`` (e.g. ``UDP(\"0.0.0.0\", "
+"DISCOVERY_PORT)``); the announcing endpoint should bind an ephemeral port "
+"instead. The receive thread keeps running after the call returns — call "
+"``close()`` to stop it."
+msgstr ""
+"Прослушивает таймаут в секундах и собирает входящие объявления, возвращая "
+"список кортежей (хост, порт, payload_bytes)``. Принимающая конечная точка "
+"должна быть привязана к DISCOVERY_PORT (например, UDP(\"0.0.0.0\", "
+"DISCOVERY_PORT)``); вместо этого объявляющая конечная точка должна привязать"
+" временный порт. Поток приема продолжает работать после возврата вызова — "
+"вызовите close(), чтобы остановить его."
+
+#: ../../Network_APIs/UDP_APIs.rst:100 2dd107eca81843edaf11c94d90ef025f
+msgid "``DISCOVERY_PORT``"
+msgstr "``DISCOVERY_PORT``"
+
+#: ../../Network_APIs/UDP_APIs.rst:101 786c6696e0544b2cbf38854669b7d9dc
+msgid ""
+"Module constant. Fixed UDP port (``65004``) used for service discovery "
+"announcements."
+msgstr ""
+"Фиксированный порт UDP (``65004``), используемый для объявлений об "
+"обнаружении служб."
+
+#: ../../Network_APIs/UDP_APIs.rst:113 ca4105a7361344d8a9fd0811516e352e
 msgid "``port``"
 msgstr "``порт``"
 
-#: ../../Network_APIs/UDP_APIs.rst:92 922c0696bc7a4b86ac0fecc7c5bc3c42
+#: ../../Network_APIs/UDP_APIs.rst:114 6072e2f250ff4029a58de0eadd6c09a9
 msgid ""
 "Returns the port number the socket is bound to. Useful when ``port=0`` was "
 "passed to the constructor and the OS assigned a dynamic port."
@@ -176,15 +223,15 @@ msgstr ""
 "Возвращает номер порта, к которому привязан сокет. Полезно, когда "
 "конструктору был передан порт=0, а ОС назначила динамический порт."
 
-#: ../../Network_APIs/UDP_APIs.rst:96 07bfd5fbbcb84613a87204db7ec0fe46
+#: ../../Network_APIs/UDP_APIs.rst:118 8e98c02f445f47a6807c651ba0a50c00
 msgid "``local_addr``"
 msgstr "``local_addr``"
 
-#: ../../Network_APIs/UDP_APIs.rst:97 f8bf4023c83544ecbb2e5bb4905734ec
+#: ../../Network_APIs/UDP_APIs.rst:119 9c53682c290b455b8c10a015b1e2af50
 msgid "Returns the full ``(host, port)`` tuple that the socket is bound to."
 msgstr "Возвращает полный кортеж ``(host, port)``, к которому привязан сокет."
 
-#: ../../Network_APIs/UDP_APIs.rst:100 fb97d4805526494e907992ef4aeb911d
+#: ../../Network_APIs/UDP_APIs.rst:122 1f8fd2c9faf6405581d264c1014f307d
 msgid ""
 "The ``UDP`` class also supports the context manager protocol, so it can be "
 "used in a ``with`` statement:"
@@ -192,7 +239,7 @@ msgstr ""
 "Класс ``UDP`` также поддерживает протокол менеджера контекста, поэтому его "
 "можно использовать в операторе ``with``:"
 
-#: ../../Network_APIs/UDP_APIs.rst:108 e9449ba0c7c5420096778154a445bb60
+#: ../../Network_APIs/UDP_APIs.rst:130 1055ad9cf8c445788cb5c06e36cc749c
 msgid ""
 "*Note: The context manager calls ``close`` automatically when* *the ``with``"
 " block exits.*"
@@ -200,25 +247,25 @@ msgstr ""
 "*Примечание. Менеджер контекста автоматически вызывает `` close`` при* * "
 "выходе из блока ``with``.*"
 
-#: ../../Network_APIs/UDP_APIs.rst:112 b23e6af001c14c8d8e60704aee0a6c32
+#: ../../Network_APIs/UDP_APIs.rst:134 6f73edcc5d514fab92dab943d56a42ed
 msgid "Key differences from TCP"
 msgstr "Ключевые отличия от TCP"
 
-#: ../../Network_APIs/UDP_APIs.rst:114 6e4aeae292844e47a99f9fdefba07b5b
+#: ../../Network_APIs/UDP_APIs.rst:136 cec3431ed6014237ae45bf25aa5f739a
 msgid ""
 "**No file transfer**. UDP is unreliable; use TCP classes for file transfers."
 msgstr ""
 "**Нет передачи файлов**. UDP ненадежен; используйте классы TCP для передачи "
 "файлов."
 
-#: ../../Network_APIs/UDP_APIs.rst:115 7fc9094ac11e4f98a12ffa40b12212ae
+#: ../../Network_APIs/UDP_APIs.rst:137 4435faefdbde444c96758f1562b6d95b
 msgid ""
 "**No connection tracking**. Each datagram carries its own source address."
 msgstr ""
 "**Без отслеживания соединений**. Каждая дейтаграмма имеет свой собственный "
 "адрес источника."
 
-#: ../../Network_APIs/UDP_APIs.rst:116 bd05f8df219a40fbad4e3d300bbf0da2
+#: ../../Network_APIs/UDP_APIs.rst:138 6fa92fa1e8124b509949ea03ec025357
 msgid ""
 "**No port allocation system**. UDP does not need ephemeral ports for data "
 "connections."
@@ -226,7 +273,7 @@ msgstr ""
 "**Нет системы распределения портов**. UDP не требует временных портов для "
 "подключений к данным."
 
-#: ../../Network_APIs/UDP_APIs.rst:118 05ae0d338e1f49a9bda8378fafc899e1
+#: ../../Network_APIs/UDP_APIs.rst:140 da55b5325e194f8180d7b319a2d3e0fd
 msgid ""
 "**Broadcast**. UDP's standout feature — one send reaches all listeners on "
 "the subnet."
@@ -234,14 +281,14 @@ msgstr ""
 "**Транслировать**. Выдающаяся особенность UDP — одна отправка достигает всех"
 " слушателей в подсети."
 
-#: ../../Network_APIs/UDP_APIs.rst:122 a3e53bc01af645319a8f91c49937be74
+#: ../../Network_APIs/UDP_APIs.rst:144 c6ff37c4323a406e8bcfe2e18e850ce3
 msgid "See Also"
 msgstr "См. также"
 
-#: ../../Network_APIs/UDP_APIs.rst:124 898847ec68f04de2be11cd912ba550ac
+#: ../../Network_APIs/UDP_APIs.rst:146 2d001ccf2aad475b8328994e5ef3fa21
 msgid ":doc:`TCP_Server_APIs` — TCP server."
 msgstr ":doc:`TCP_Server_APIs` — TCP-сервер."
 
-#: ../../Network_APIs/UDP_APIs.rst:125 f27ba0e1f1484cebbf6e3315ca5d1104
+#: ../../Network_APIs/UDP_APIs.rst:147 eb4a490682e44b33aca8080a22aa8555
 msgid ":doc:`TCP_Client_APIs` — TCP client."
 msgstr ":doc:`TCP_Client_APIs` — TCP-клиент."

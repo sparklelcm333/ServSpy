@@ -8,6 +8,11 @@ import argparse
 import subprocess
 import traceback
 from .network_api.connect_tcp import TCP_Server_Base, TCP_Client_Base
+from .network_api.connect_udp import UDP, DISCOVERY_PREFIX
+
+# Keep announcers referenced for the process lifetime; daemon threads alone
+# do not keep the object (and its socket) alive.
+udp_announcers = []
 
 SERVER_DEFAULTS = {
     "host": "127.0.0.1",
@@ -183,6 +188,14 @@ def generate_configs_from_args(args):
         return [], [config]
 
 
+def start_udp_announcer(port):
+    announcer = UDP("0.0.0.0", 0)
+    announcer.announce(
+        interval=5.0, payload="{} v1 {}".format(DISCOVERY_PREFIX, port)
+    )
+    udp_announcers.append(announcer)
+
+
 def run_launched_instance(instance_type, config_file_path):
     try:
         with open(config_file_path, "r", encoding="utf-8") as f:
@@ -193,6 +206,7 @@ def run_launched_instance(instance_type, config_file_path):
             pass
         if instance_type == "server":
             server = TCP_Server_Base(**config)
+            start_udp_announcer(config["port"])
         else:
             client = TCP_Client_Base(**config)
     except Exception as e:

@@ -45,6 +45,10 @@ The public methods available on a ``UDP`` instance are:
         ...
     def listen(self, handler) -> None:
         ...
+    def announce(self, payload: bytes | str, interval: float = 5.0) -> None:
+        ...
+    def discover(self, timeout: float = 1.0) -> list[tuple[str, int, bytes]]:
+        ...
     def close(self) -> None:
         ...
 
@@ -63,21 +67,39 @@ The public methods available on a ``UDP`` instance are:
     Starts a daemon thread that receives incoming datagrams.
     The ``handler`` is a callable ``handler(data, addr)`` that
     is invoked for each datagram received. Handler exceptions
-    are logged via the ``logging`` module rather than propagated,
-    so a faulty handler does not terminate the receive loop.
+    are logged rather than propagated, so a faulty handler does
+    not terminate the receive loop.
     This method is idempotent: calling it while the receive
     thread is already running does nothing.
 
 ``close``
     Signals the receive loop to exit and closes the underlying
-    socket. The ``_closed`` flag is set to ``True`` and the
-    socket's ``close()`` method is called to interrupt any
-    blocking ``recvfrom`` call. This method is idempotent:
-    calling it multiple times does not raise an error.
+    socket, interrupting any blocking ``recvfrom`` call.
+    This method is idempotent: calling it multiple times does not
+    raise an error.
 
 *Note: When ``listen`` is called after ``close``, a*
 *``RuntimeError`` *with the message "endpoint is closed" is*
 *raised, because the underlying socket is no longer available.*
+
+``announce``
+    Periodically broadcasts a discovery announcement to
+    ``255.255.255.255:DISCOVERY_PORT`` on a daemon thread until
+    ``close()`` is called. ``payload`` is required and is the announced
+    bytes (a ``str`` is encoded as UTF-8; ``bytes`` is sent as-is).
+    ``interval`` is the seconds between announcements (default ``5.0``).
+
+``discover``
+    Listens for ``timeout`` seconds and collects incoming announcements,
+    returning a list of ``(host, port, payload_bytes)`` tuples. The
+    receiving endpoint must be bound to ``DISCOVERY_PORT``
+    (e.g. ``UDP("0.0.0.0", DISCOVERY_PORT)``); the announcing endpoint
+    should bind an ephemeral port instead. The receive thread keeps
+    running after the call returns — call ``close()`` to stop it.
+
+``DISCOVERY_PORT``
+    Module constant. Fixed UDP port (``65004``) used for service
+    discovery announcements.
 
 .. code-block:: python
 
